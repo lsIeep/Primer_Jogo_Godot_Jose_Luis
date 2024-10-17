@@ -637,10 +637,10 @@ position = Vector2(359, -109)
 [node name="Area2D4" parent="." instance=ExtResource("7_5vsp1")]
 position = Vector2(426, -139)
 
-[node name="AnimatableBody2D2" parent="." instance=ExtResource("7_6m8yw")]
+[node name="pumpkin" parent="." instance=ExtResource("7_6m8yw")]
 position = Vector2(153, -6)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="pumpkin"]
 libraries = {
 "": SubResource("AnimationLibrary_ca868")
 }
