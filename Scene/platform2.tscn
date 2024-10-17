@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://deyg68bm8b6pc"]
+
+[ext_resource type="Texture2D" uid="uid://b6s4i8iphfsvc" path="res://Sprites/New Background/Sin título-3.png" id="1_xbn32"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o53e7"]
+size = Vector2(52, 21)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xbn32")
+region_enabled = true
+region_rect = Rect2(137, 164, 60, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_o53e7")
+one_way_collision = true
