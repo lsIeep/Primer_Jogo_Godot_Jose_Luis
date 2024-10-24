@@ -560,10 +560,10 @@ unique_name_in_owner = true
 script = ExtResource("9_0c7jk")
 
 [node name="ScoreLabel" type="Label" parent="GameManager"]
-offset_left = -170.0
-offset_top = -122.0
-offset_right = 614.0
-offset_bottom = 78.0
+offset_left = 1166.0
+offset_top = -94.0
+offset_right = 1950.0
+offset_bottom = 106.0
 scale = Vector2(0.065, 0.065)
 theme_override_fonts/font = ExtResource("4_ib4uo")
 theme_override_font_sizes/font_size = 150
@@ -599,7 +599,7 @@ position = Vector2(1269, -27)
 [node name="Pumpkin" type="Node" parent="."]
 
 [node name="pumpkin" parent="Pumpkin" instance=ExtResource("7_6m8yw")]
-position = Vector2(150, -3)
+position = Vector2(150, -11)
 
 [node name="Pumpkin" parent="Pumpkin" instance=ExtResource("7_6m8yw")]
 position = Vector2(342, -75)
@@ -607,11 +607,14 @@ position = Vector2(342, -75)
 [node name="Pumpkin2" parent="Pumpkin" instance=ExtResource("7_6m8yw")]
 position = Vector2(425, -163)
 
-[node name="Pumpkin2" parent="Pumpkin/Pumpkin2" instance=ExtResource("7_6m8yw")]
-position = Vector2(41, 143)
+[node name="Pumpkin3" parent="Pumpkin" instance=ExtResource("7_6m8yw")]
+position = Vector2(1193, -54)
 
-[node name="Pumpkin2" parent="Pumpkin/Pumpkin2/Pumpkin2" instance=ExtResource("7_6m8yw")]
-position = Vector2(727, -34)
+[node name="Pumpkin4" parent="Pumpkin" instance=ExtResource("7_6m8yw")]
+position = Vector2(463, -23)
+
+[node name="Pumpkin4" parent="Pumpkin/Pumpkin4" instance=ExtResource("7_6m8yw")]
+position = Vector2(327, -27)
 
 [node name="Platform" type="Node" parent="."]
 
@@ -639,4 +642,4 @@ metadata/collision2D = false
 z_index = -1
 tile_set = SubResource("TileSet_mhd4f")
 format = 2
-layer_0/tile_data = PackedInt32Array(131068, 262144, 5, 65532, 262144, 4, -4, 262144, 3)
+layer_0/tile_data = PackedInt32Array(131068, 262144, 5, 65532, 262144, 4, -4, 262144, 3, -130991, 262144, 5, -196527, 262144, 4, -262063, 262144, 3)
