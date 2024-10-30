@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://btb2tv5rsunuu"]
+[gd_scene load_steps=21 format=3 uid="uid://btb2tv5rsunuu"]
 
+[ext_resource type="Texture2D" uid="uid://c0aspiwgmgd15" path="res://Sprites/New Background/2976.png" id="1_52wue"]
 [ext_resource type="PackedScene" uid="uid://od0soatr0avg" path="res://Scene/player.tscn" id="1_363v0"]
 [ext_resource type="Texture2D" uid="uid://bsuy1xav5w1a5" path="res://Sprites/New Background/52594_2.0.png" id="1_fxuyi"]
 [ext_resource type="Texture2D" uid="uid://c33qrinkann8l" path="res://Sprites/New Background/Sin título-2.png" id="2_2teqh"]
@@ -9,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://deyg68bm8b6pc" path="res://Scene/platform2.tscn" id="7_5vsp1"]
 [ext_resource type="PackedScene" uid="uid://dvructh0sny5u" path="res://Scene/pumpkin.tscn" id="7_6m8yw"]
 [ext_resource type="PackedScene" uid="uid://cbgwe1m7ey6yc" path="res://Scene/enemy.tscn" id="8_ip6nm"]
-[ext_resource type="Script" path="res://Scene/game_manager.gd" id="9_0c7jk"]
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="9_0c7jk"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2odm6"]
 
@@ -555,6 +556,17 @@ sources/0 = SubResource("TileSetAtlasSource_5o55s")
 
 [node name="Game" type="Node2D"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -30
+offset = Vector2(575, 320)
+scale = Vector2(5, 5)
+transform = Transform2D(5, 0, 0, 5, 575, 320)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+texture = ExtResource("1_52wue")
+region_enabled = true
+region_rect = Rect2(376, 344, 360, 160)
+
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("9_0c7jk")
@@ -572,11 +584,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_363v0")]
 position = Vector2(-26, 16)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, -35)
-zoom = Vector2(4, 4)
-limit_bottom = 40
 
 [node name="killzone" parent="." instance=ExtResource("3_el8pf")]
 
@@ -599,7 +606,7 @@ position = Vector2(1269, -27)
 [node name="Pumpkin" type="Node" parent="."]
 
 [node name="pumpkin" parent="Pumpkin" instance=ExtResource("7_6m8yw")]
-position = Vector2(150, -11)
+position = Vector2(150, -16)
 
 [node name="Pumpkin" parent="Pumpkin" instance=ExtResource("7_6m8yw")]
 position = Vector2(342, -75)
@@ -611,7 +618,7 @@ position = Vector2(425, -163)
 position = Vector2(1193, -54)
 
 [node name="Pumpkin4" parent="Pumpkin" instance=ExtResource("7_6m8yw")]
-position = Vector2(463, -23)
+position = Vector2(463, -30)
 
 [node name="Pumpkin4" parent="Pumpkin/Pumpkin4" instance=ExtResource("7_6m8yw")]
 position = Vector2(327, -27)
