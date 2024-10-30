@@ -552,6 +552,7 @@ texture = ExtResource("2_2teqh")
 4:5/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_mhd4f"]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_5o55s")
 
 [node name="Game" type="Node2D"]
@@ -563,6 +564,7 @@ scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 575, 320)
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+z_index = -195
 texture = ExtResource("1_52wue")
 region_enabled = true
 region_rect = Rect2(376, 344, 360, 160)
@@ -572,6 +574,7 @@ unique_name_in_owner = true
 script = ExtResource("9_0c7jk")
 
 [node name="ScoreLabel" type="Label" parent="GameManager"]
+z_index = -55
 offset_left = 1166.0
 offset_top = -94.0
 offset_right = 1950.0
@@ -620,8 +623,8 @@ position = Vector2(1193, -54)
 [node name="Pumpkin4" parent="Pumpkin" instance=ExtResource("7_6m8yw")]
 position = Vector2(463, -30)
 
-[node name="Pumpkin4" parent="Pumpkin/Pumpkin4" instance=ExtResource("7_6m8yw")]
-position = Vector2(327, -27)
+[node name="Pumpkin5" parent="Pumpkin" instance=ExtResource("7_6m8yw")]
+position = Vector2(790, -57)
 
 [node name="Platform" type="Node" parent="."]
 
@@ -649,4 +652,12 @@ metadata/collision2D = false
 z_index = -1
 tile_set = SubResource("TileSet_mhd4f")
 format = 2
-layer_0/tile_data = PackedInt32Array(131068, 262144, 5, 65532, 262144, 4, -4, 262144, 3, -130991, 262144, 5, -196527, 262144, 4, -262063, 262144, 3)
+layer_0/tile_data = PackedInt32Array(-130991, 262144, 5, -196527, 262144, 4, -262063, 262144, 3)
+
+[node name="Area2D" type="Area2D" parent="Background/TileMap2"]
+z_index = 40
+position = Vector2(1304, -39)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/TileMap2/Area2D"]
+scale = Vector2(0.785, 0.785)
+polygon = PackedVector2Array(3.82166, -15.2866, -3.82166, -15.2866, -3.82166, -14.0127, -6.36938, -14.0127, -6.36938, -12.7388, -7.64331, -12.7388, -7.64331, -11.465, -8.91724, -11.465, -8.91724, -8.91719, -10.191, -8.91719, -10.191, 16.5605, 10.191, 16.5605, 10.191, -8.91719, 8.91724, -8.91719, 8.91724, -11.465, 7.64331, -11.465, 7.64331, -12.7388, 6.36938, -12.7388, 6.36938, -14.0127, 3.82166, -14.0127)
