@@ -1,16 +1,17 @@
-[gd_scene load_steps=21 format=3 uid="uid://btb2tv5rsunuu"]
+[gd_scene load_steps=23 format=3 uid="uid://btb2tv5rsunuu"]
 
-[ext_resource type="Texture2D" uid="uid://c0aspiwgmgd15" path="res://Sprites/New Background/2976.png" id="1_52wue"]
-[ext_resource type="PackedScene" uid="uid://od0soatr0avg" path="res://Scene/player.tscn" id="1_363v0"]
-[ext_resource type="Texture2D" uid="uid://bsuy1xav5w1a5" path="res://Sprites/New Background/52594_2.0.png" id="1_fxuyi"]
-[ext_resource type="Texture2D" uid="uid://c33qrinkann8l" path="res://Sprites/New Background/Sin título-2.png" id="2_2teqh"]
-[ext_resource type="PackedScene" uid="uid://cvr8sccgnled4" path="res://Scene/killzone.tscn" id="3_el8pf"]
-[ext_resource type="FontFile" uid="uid://53jjoq45ek5p" path="res://Font/kirby-classic.ttf" id="4_ib4uo"]
-[ext_resource type="PackedScene" uid="uid://c7qxxedk3rix4" path="res://Scene/platform.tscn" id="5_i6hte"]
-[ext_resource type="PackedScene" uid="uid://deyg68bm8b6pc" path="res://Scene/platform2.tscn" id="7_5vsp1"]
-[ext_resource type="PackedScene" uid="uid://dvructh0sny5u" path="res://Scene/pumpkin.tscn" id="7_6m8yw"]
-[ext_resource type="PackedScene" uid="uid://cbgwe1m7ey6yc" path="res://Scene/enemy.tscn" id="8_ip6nm"]
-[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="9_0c7jk"]
+[ext_resource type="Texture2D" uid="uid://c0aspiwgmgd15" path="res://Sprites/New Background/2976.png" id="1_p5a1a"]
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="2_6ugxp"]
+[ext_resource type="FontFile" uid="uid://53jjoq45ek5p" path="res://Font/kirby-classic.ttf" id="3_dhfxp"]
+[ext_resource type="PackedScene" uid="uid://od0soatr0avg" path="res://Scene/player.tscn" id="4_f7ov1"]
+[ext_resource type="PackedScene" uid="uid://cvr8sccgnled4" path="res://Scene/killzone.tscn" id="5_6br4l"]
+[ext_resource type="PackedScene" uid="uid://c7qxxedk3rix4" path="res://Scene/platform.tscn" id="6_gj2ax"]
+[ext_resource type="PackedScene" uid="uid://cbgwe1m7ey6yc" path="res://Scene/enemy.tscn" id="7_ygaxy"]
+[ext_resource type="PackedScene" uid="uid://dvructh0sny5u" path="res://Scene/pumpkin.tscn" id="8_wt7lo"]
+[ext_resource type="PackedScene" uid="uid://deyg68bm8b6pc" path="res://Scene/platform2.tscn" id="9_glplg"]
+[ext_resource type="Texture2D" uid="uid://bsuy1xav5w1a5" path="res://Sprites/New Background/52594_2.0.png" id="10_o442h"]
+[ext_resource type="Texture2D" uid="uid://c33qrinkann8l" path="res://Sprites/New Background/Sin título-2.png" id="11_kjjrf"]
+[ext_resource type="PackedScene" uid="uid://ccutsa5qaoknp" path="res://Scene/scene_trigger.tscn" id="12_ii703"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2odm6"]
 
@@ -53,7 +54,7 @@ _data = {
 }
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_of0es"]
-texture = ExtResource("1_fxuyi")
+texture = ExtResource("10_o442h")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -416,7 +417,7 @@ texture = ExtResource("1_fxuyi")
 15:23/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cxbw7"]
-texture = ExtResource("2_2teqh")
+texture = ExtResource("11_kjjrf")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0, 8, 8, -8, 8)
 1:0/0 = 0
@@ -505,7 +506,7 @@ sources/0 = SubResource("TileSetAtlasSource_of0es")
 sources/1 = SubResource("TileSetAtlasSource_cxbw7")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5o55s"]
-texture = ExtResource("2_2teqh")
+texture = ExtResource("11_kjjrf")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -555,6 +556,9 @@ texture = ExtResource("2_2teqh")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_5o55s")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ax64i"]
+size = Vector2(16, 25)
+
 [node name="Game" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -564,14 +568,14 @@ scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 575, 320)
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
-z_index = -195
-texture = ExtResource("1_52wue")
+z_index = 1
+texture = ExtResource("1_p5a1a")
 region_enabled = true
 region_rect = Rect2(376, 344, 360, 160)
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("9_0c7jk")
+script = ExtResource("2_6ugxp")
 
 [node name="ScoreLabel" type="Label" parent="GameManager"]
 z_index = -55
@@ -580,21 +584,21 @@ offset_top = -94.0
 offset_right = 1950.0
 offset_bottom = 106.0
 scale = Vector2(0.065, 0.065)
-theme_override_fonts/font = ExtResource("4_ib4uo")
+theme_override_fonts/font = ExtResource("3_dhfxp")
 theme_override_font_sizes/font_size = 150
 text = "Pumpkins: x"
 metadata/_edit_use_anchors_ = true
 
-[node name="Player" parent="." instance=ExtResource("1_363v0")]
+[node name="Player" parent="." instance=ExtResource("4_f7ov1")]
 position = Vector2(-26, 16)
 
-[node name="killzone" parent="." instance=ExtResource("3_el8pf")]
+[node name="killzone" parent="." instance=ExtResource("5_6br4l")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 position = Vector2(145, 58)
 shape = SubResource("WorldBoundaryShape2D_2odm6")
 
-[node name="Platform_mobile" parent="." instance=ExtResource("5_i6hte")]
+[node name="Platform_mobile" parent="." instance=ExtResource("6_gj2ax")]
 position = Vector2(694, 5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platform_mobile"]
@@ -603,41 +607,41 @@ libraries = {
 }
 autoplay = "move"
 
-[node name="Enemy" parent="." instance=ExtResource("8_ip6nm")]
+[node name="Enemy" parent="." instance=ExtResource("7_ygaxy")]
 position = Vector2(1269, -27)
 
 [node name="Pumpkin" type="Node" parent="."]
 
-[node name="pumpkin" parent="Pumpkin" instance=ExtResource("7_6m8yw")]
+[node name="pumpkin" parent="Pumpkin" instance=ExtResource("8_wt7lo")]
 position = Vector2(150, -16)
 
-[node name="Pumpkin" parent="Pumpkin" instance=ExtResource("7_6m8yw")]
+[node name="Pumpkin" parent="Pumpkin" instance=ExtResource("8_wt7lo")]
 position = Vector2(342, -75)
 
-[node name="Pumpkin2" parent="Pumpkin" instance=ExtResource("7_6m8yw")]
+[node name="Pumpkin2" parent="Pumpkin" instance=ExtResource("8_wt7lo")]
 position = Vector2(425, -163)
 
-[node name="Pumpkin3" parent="Pumpkin" instance=ExtResource("7_6m8yw")]
+[node name="Pumpkin3" parent="Pumpkin" instance=ExtResource("8_wt7lo")]
 position = Vector2(1193, -54)
 
-[node name="Pumpkin4" parent="Pumpkin" instance=ExtResource("7_6m8yw")]
+[node name="Pumpkin4" parent="Pumpkin" instance=ExtResource("8_wt7lo")]
 position = Vector2(463, -30)
 
-[node name="Pumpkin5" parent="Pumpkin" instance=ExtResource("7_6m8yw")]
+[node name="Pumpkin5" parent="Pumpkin" instance=ExtResource("8_wt7lo")]
 position = Vector2(790, -57)
 
 [node name="Platform" type="Node" parent="."]
 
-[node name="Area2D" parent="Platform" instance=ExtResource("7_5vsp1")]
+[node name="Area2D" parent="Platform" instance=ExtResource("9_glplg")]
 position = Vector2(342, -51)
 
-[node name="Area2D2" parent="Platform" instance=ExtResource("7_5vsp1")]
+[node name="Area2D2" parent="Platform" instance=ExtResource("9_glplg")]
 position = Vector2(423, -78)
 
-[node name="Area2D3" parent="Platform" instance=ExtResource("7_5vsp1")]
+[node name="Area2D3" parent="Platform" instance=ExtResource("9_glplg")]
 position = Vector2(359, -109)
 
-[node name="Area2D4" parent="Platform" instance=ExtResource("7_5vsp1")]
+[node name="Area2D4" parent="Platform" instance=ExtResource("9_glplg")]
 position = Vector2(426, -139)
 
 [node name="Background" type="Node" parent="."]
@@ -654,10 +658,9 @@ tile_set = SubResource("TileSet_mhd4f")
 format = 2
 layer_0/tile_data = PackedInt32Array(-130991, 262144, 5, -196527, 262144, 4, -262063, 262144, 3)
 
-[node name="Area2D" type="Area2D" parent="Background/TileMap2"]
-z_index = 40
-position = Vector2(1304, -39)
+[node name="SceneTrigger" parent="." instance=ExtResource("12_ii703")]
+position = Vector2(1304, -38)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/TileMap2/Area2D"]
-scale = Vector2(0.785, 0.785)
-polygon = PackedVector2Array(3.82166, -15.2866, -3.82166, -15.2866, -3.82166, -14.0127, -6.36938, -14.0127, -6.36938, -12.7388, -7.64331, -12.7388, -7.64331, -11.465, -8.91724, -11.465, -8.91724, -8.91719, -10.191, -8.91719, -10.191, 16.5605, 10.191, 16.5605, 10.191, -8.91719, 8.91724, -8.91719, 8.91724, -11.465, 7.64331, -11.465, 7.64331, -12.7388, 6.36938, -12.7388, 6.36938, -14.0127, 3.82166, -14.0127)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ax64i")
